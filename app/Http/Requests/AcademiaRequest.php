@@ -14,7 +14,7 @@ class AcademiaRequest extends FormRequest
     {
         return [
             "cep" => "nullable|string|max:200",
-            "cidade_id" => "nullable|string", // sem exists por enquanto
+            "cidade_id" => "nullable|string|exists:cidades,id",
             "cnpj" => "nullable|string|max:200",
             "descricao" => "nullable|string|max:200",
             "email" => "nullable|string|max:200",
