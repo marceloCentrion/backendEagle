@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('grupos_musculares', function (Blueprint $table) {
             $table->string('id')->primary();
-            $table->string('academia_id', length:200);
+            $table->string('academia_id', length:200)->notNullable();
             $table->foreign('academia_id')
                 ->references('id')
                 ->on('academias');
-            $table->enum('interno', ['SIM','NAO']);
-            $table->string('nome', length:200);
-            $table->string('creator', length:200);
-            $table->string('slug', length:200);
+            $table->enum('interno', ['SIM','NAO'])->notNullable();
+            $table->string('nome', length:200)->notNullable();
+            $table->string('creator', length:200)->nullable();
+            $table->string('slug', length:200)->nullable();
             $table->timestamps();
         });
     }
