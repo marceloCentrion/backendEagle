@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AcademiaController;
 use App\Http\Controllers\AcademiaRatingsController;
+use App\Http\Controllers\BairrosController;
 use App\Http\Controllers\CidadeController;
 use App\Http\Controllers\EstadoController;
 use App\Http\Controllers\GruposMuscularesController;
@@ -14,4 +15,6 @@ Route::apiResource('academia', AcademiaController::class);
 Route::apiResource('estado', EstadoController::class); 
 Route::apiResource('cidade', CidadeController::class); 
 Route::apiResource('academia-ratings', AcademiaRatingsController::class); 
-Route::apiResource('grupos-musculares', GruposMuscularesController::class); 
+Route::apiResource('grupos-musculares', GruposMuscularesController::class);
+Route::apiResource('bairros', BairrosController::class);
+
