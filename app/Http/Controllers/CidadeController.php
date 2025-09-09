@@ -23,9 +23,9 @@ class CidadeController extends Controller
     {
         $request->validate([
             'nome' => 'required|string|max:200',
-            'estado_id' => 'required|integer|exists:estados,id',
+            'estado_id' => 'required|string|exists:estados,id',
         ]);
-
+        
         $cidade = Cidade::create($request->all());
         return response()->json($cidade, 201);
     }
@@ -49,7 +49,7 @@ class CidadeController extends Controller
     {
         $request->validate([
             'nome' => 'sometimes|required|string|max:200',
-            'estado_id' => 'sometimes|required|integer|exists:estados,id',
+            'estado_id' => 'sometimes|required|string|exists:estados,id',
         ]);
         $cidade = Cidade::find($id);
         if (!$cidade) {
