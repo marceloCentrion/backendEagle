@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
+use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = UserResource::collection(User::all());
         return response()->json($users);   
     }
 
@@ -36,7 +37,8 @@ class UserController extends Controller
         if (!$user) {
             return response()->json(['message' => 'Usuario nao encontrado'], 404);
         }
-        return response()->json($user);
+        $resource = new UserResource($user);
+        return response()->json($resource);
     }
 
     /**
