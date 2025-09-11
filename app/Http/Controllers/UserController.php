@@ -51,7 +51,7 @@ class UserController extends Controller
             return response()->json(['message' => 'Usuario nao encontrado'], 404);
         }
         $user->update($request->validated());
-        return response()->json($user);
+        return response()->json($user,200);
     }
 
     /**

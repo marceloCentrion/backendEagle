@@ -13,22 +13,22 @@ class UserRequest extends FormRequest
 
 public function rules(): array
 {
-       /** @var \Illuminate\Foundation\Http\FormRequest $this */
+      /** @var \Illuminate\Http\Request $this */
     $rules = [
-        'nome' => request()->isMethod('post') 
+        'nome' => $this->isMethod('post') 
             ? 'required|string|max:150' 
             : 'sometimes|string|max:150',
 
         'sobrenome' => 'sometimes|string|max:150',
         'email'=> 'required|email|max:200|unique:users,email,' . request()->route('user'),
 
-        'cpf_cnpj' => request()->isMethod('post') 
+        'cpf_cnpj' => $this->isMethod('post') 
             ? 'required|string|max:14'   
             : 'sometimes|string|max:14',
 
         'telefone' => 'sometimes|string|size:11', 
 
-        'tipo_usuario' => request()->isMethod('post') 
+        'tipo_usuario' =>$this->isMethod('post') 
             ? 'required|in:ADMINISTRADOR,SUPERVISOR,OPERADOR,GESTOR,OPERACIONAL,PERSONAL,USUARIOS DO APP,ALUNO,PARCEIRO' 
             : 'sometimes|in:ADMINISTRADOR,SUPERVISOR,OPERADOR,GESTOR,OPERACIONAL,PERSONAL,USUARIOS DO APP,ALUNO,PARCEIRO',
 
@@ -94,7 +94,7 @@ public function rules(): array
 
         'papel_parede' => 'sometimes|string|max:200',
 
-        'parceiro_id' => 'sometimes|nullable|integer|exists:parceiros,id',
+        'parceiro_id' => 'sometimes|nullable|string|exists:parceiros,id',
 
         'peso_atual' => 'sometimes|integer',
 
@@ -234,7 +234,6 @@ public function messages()
         'papel_parede.string' => 'O papel de parede deve ser um texto válido.',
         'papel_parede.max' => 'O papel de parede não pode ter mais de 200 caracteres.',
 
-        'parceiro_id.integer' => 'O parceiro deve ser um identificador numérico válido.',
         'parceiro_id.exists' => 'O parceiro selecionado não é válido.',
 
         'peso_atual.integer' => 'O peso atual deve ser um número inteiro válido.',

@@ -13,31 +13,33 @@ return new class extends Migration
     {
         Schema::create('parceiros', function (Blueprint $table) {
             $table->string('id')->primary();
-            $table->string('cidade', length:200);
-            $table->string('cnpj', length:200);
-            $table->string('descricao', length:500);
-            $table->string('email', length:200);
-            $table->string('email_responsavel', length:200);
-            $table->date('fim_periodo');
-            $table->date('inicio_periodo');
-            $table->string('logo', length:200);
-            $table->string('nome', length:200);
-            $table->string('nome_responsavel', length:200);
+            $table->string('cidade_id', length:200)->notNullable();
+            $table->foreign('cidade_id')
+                ->references('id')
+                ->on('cidades');
+            $table->string('cnpj', length:200)->notNullable();
+            $table->string('descricao', length:500)->nullable();
+            $table->string('email', length:200)->notNullable();
+            $table->string('email_responsavel', length:200)->notNullable();
+            $table->date('fim_periodo')->notNullable();
+            $table->date('inicio_periodo')->notNullable();
+            $table->string('logo', length:200)->notNullable();
+            $table->string('nome', length:200)->notNullable();
+            $table->string('nome_responsavel', length:200)->notNullable();
             $table->enum('segmento', [
                 'SUPLEMENTOS ALIMENTARES',
                 'MODA FITNESS',
                 'NUTRICIONISTA OU CONSULTOR DE SAUDE',
                 'ALIMENTACAO SAUDAVEL',
-                ]);
-            $table->string('site', length:200);
-            $table->string('telefone', length:200);
-            $table->string('estado_id', length:200);
-            $table->string('creator', length:200);
-            $table->string('slug', length:200);
-            $table->string('rede_social_id', length:200);
-            $table->foreign('rede_social_id')
+                ])->notNullable();
+            $table->string('site', length:200)->notNullable();
+            $table->string('telefone', length:200)->notNullable();
+            $table->string('estado_id', length:200)->notNullable();
+            $table->foreign('estado_id')
                 ->references('id')
-                ->on('rede_sociais');
+                ->on('estados');
+            $table->string('creator', length:200)->nullable();
+            $table->string('slug', length:200)->nullable();
             $table->timestamps();
         });
     }

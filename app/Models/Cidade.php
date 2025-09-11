@@ -12,4 +12,8 @@ class Cidade extends BaseModel
         "creator",
         "slug"
     ];
+public function estado()
+{
+    return $this->belongsTo(Estado::class, 'estado_id');
+}
 }

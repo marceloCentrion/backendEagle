@@ -95,6 +95,7 @@ return new class extends Migration
             $table->enum('verif_reg_conselho', ['SIM','NAO'])->default('NAO');
             $table->enum('verif_telefone', ['SIM','NAO'])->default('NAO');
 
+            $table->string('creator', 200)->nullable();
             $table->string('slug', 200)->nullable();
 
             $table->rememberToken();
