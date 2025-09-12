@@ -12,21 +12,23 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('treinos', function (Blueprint $table) {
-            $table->string('id')->primary();
-            $table->string('grupo_muscular_id');
-            $table->foreign('grupo_muscular_id')
-                ->references('id')
-                ->on('grupos_musculares');
-            $table->string('academia_id', 200);
-            $table->foreign('academia_id')
-                ->references('id')
-                ->on('academias');
-            $table->enum('interno', ['SIM', 'NAO']);
-            $table->string('nome', 200);
-            $table->string('nome_treinos', 200);
-            $table->string('creator', 200);
-            $table->string('slug', 200);
-            $table->timestamps();
+   $table->string('id')->primary();
+    $table->string('grupo_muscular_id')->notNullable();
+    $table->foreign('grupo_muscular_id')
+        ->references('id')
+        ->on('grupos_musculares');
+
+    $table->string('academia_id', 200)->notNullable();
+    $table->foreign('academia_id')
+        ->references('id')
+        ->on('academias');
+
+    $table->enum('interno', ['SIM', 'NAO'])->default('NAO');
+    $table->string('nome', 200)->notNullable();
+    $table->string('nome_treinos', 200)->notNullable();
+    $table->string('creator', 200)->nullable();
+    $table->string('slug', 200)->nullable();
+    $table->timestamps();
         });
     }
 

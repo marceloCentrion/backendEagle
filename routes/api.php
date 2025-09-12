@@ -2,13 +2,18 @@
 
 use App\Http\Controllers\AcademiaController;
 use App\Http\Controllers\AcademiaRatingsController;
+use App\Http\Controllers\AlbumsController;
 use App\Http\Controllers\BairrosController;
 use App\Http\Controllers\CidadeController;
 use App\Http\Controllers\EstadoController;
 use App\Http\Controllers\FabricanteController;
 use App\Http\Controllers\GruposMuscularesController;
 use App\Http\Controllers\ParceirosController;
+use App\Http\Controllers\PublicacaoController;
+use App\Http\Controllers\RegistroExecTreinoController;
 use App\Http\Controllers\SegmentosParceirosController;
+use App\Http\Controllers\TagPublicacaoController;
+use App\Http\Controllers\TreinoController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -23,4 +28,10 @@ Route::apiResource('bairros', BairrosController::class);
 Route::apiResource('fabricantes', FabricanteController::class);
 Route::apiResource('segmentos-parceiros', SegmentosParceirosController::class);
 Route::apiResource('parceiros', ParceirosController::class);
+Route::apiResource('album', AlbumsController::class);
+Route::apiResource('publicacao', PublicacaoController::class);
+Route::apiResource('registro-exec-treino', RegistroExecTreinoController::class);
+Route::apiResource('treino', TreinoController::class);
+Route::apiResource('tag-publicacao', TagPublicacaoController::class);
+
 

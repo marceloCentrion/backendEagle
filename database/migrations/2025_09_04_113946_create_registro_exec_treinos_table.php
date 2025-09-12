@@ -17,16 +17,16 @@ return new class extends Migration
             $table->foreign('aluno_id')
                 ->references('id')
                 ->on('users');
-            $table->integer('calorias');
-            $table->integer('execicios_concluidos');
-            $table->integer('tempo');
+            $table->integer('calorias')->notNullable();
+            $table->integer('execicios_concluidos')->notNullable();
+            $table->integer('tempo')->notNullable();
             $table->string('treino_id', 200);
             $table->foreign('treino_id')
                 ->references('id')
                 ->on('treinos');
-            $table->date('data');
-            $table->string('creator',200);
-            $table->string('slug',200);
+            $table->date('data')->notNullable();
+            $table->string('creator', 200)->nullable();
+            $table->string('slug', 200)->nullable();
             $table->timestamps();
         });
     }

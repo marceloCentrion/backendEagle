@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('tag_publicacaos', function (Blueprint $table) {
             $table->string('id')->primary();
-            $table->string('publicacao_id', length:200);
+            $table->string('publicacao_id', length:200)-> nullable();
             $table->foreign('publicacao_id')
                 ->references('id')
                 ->on('publicacaos');
-            $table->string('creator', length:200);
-            $table->string('slug', length:200);
+            $table->string('creator', length:200)->nullable();
+            $table->string('slug', length:200)->nullable();
             $table->timestamps();
         });
     }
