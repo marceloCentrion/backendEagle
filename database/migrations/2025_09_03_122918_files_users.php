@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create("files_users", function (Blueprint $table) {
             $table->string("id")->primary();
             $table->string("arquivo");
-            $table->timestamp("");
+            $table->timestamps();
          });
     }
 

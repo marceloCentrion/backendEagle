@@ -7,6 +7,7 @@ use App\Http\Controllers\BairrosController;
 use App\Http\Controllers\CidadeController;
 use App\Http\Controllers\EstadoController;
 use App\Http\Controllers\FabricanteController;
+use App\Http\Controllers\FileUserController;
 use App\Http\Controllers\GruposMuscularesController;
 use App\Http\Controllers\IndicacaoController;
 use App\Http\Controllers\ParceirosController;
@@ -37,5 +38,6 @@ Route::apiResource('treino', TreinoController::class);
 Route::apiResource('tag-publicacao', TagPublicacaoController::class);
 Route::apiResource('rede-social', RedeSocialController::class);
 Route::apiResource('indicacao', IndicacaoController::class);
+Route::apiResource('file-user', FileUserController::class);
 
 
