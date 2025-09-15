@@ -16,7 +16,7 @@ class TagPublicacaoResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'publicacao_id' =>new PublicacaosResource($this->whenLoaded('publicacao')),
+            'publicacao_id' =>new PublicacaosResource($this->publicacao),
             'creator' => $this->creator,
             'slug' => $this->slug,
             'created_at' => $this->created_at,

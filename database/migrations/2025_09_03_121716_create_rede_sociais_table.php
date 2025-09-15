@@ -19,9 +19,9 @@ return new class extends Migration
                 'FACEBOOK', 
                 'X (TWITTER)', 
                 'SPOTIFY'
-            ]);
-            $table->string('creator', length:200);
-            $table->string('slug', length:200);
+            ])->noNullable();
+            $table->string('creator', length:200)->nullable();
+            $table->string('slug', length:200)->nullable();
             $table->timestamps();
         });
     }

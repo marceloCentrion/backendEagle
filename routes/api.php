@@ -8,8 +8,10 @@ use App\Http\Controllers\CidadeController;
 use App\Http\Controllers\EstadoController;
 use App\Http\Controllers\FabricanteController;
 use App\Http\Controllers\GruposMuscularesController;
+use App\Http\Controllers\IndicacaoController;
 use App\Http\Controllers\ParceirosController;
 use App\Http\Controllers\PublicacaoController;
+use App\Http\Controllers\RedeSocialController;
 use App\Http\Controllers\RegistroExecTreinoController;
 use App\Http\Controllers\SegmentosParceirosController;
 use App\Http\Controllers\TagPublicacaoController;
@@ -33,5 +35,7 @@ Route::apiResource('publicacao', PublicacaoController::class);
 Route::apiResource('registro-exec-treino', RegistroExecTreinoController::class);
 Route::apiResource('treino', TreinoController::class);
 Route::apiResource('tag-publicacao', TagPublicacaoController::class);
+Route::apiResource('rede-social', RedeSocialController::class);
+Route::apiResource('indicacao', IndicacaoController::class);
 
 

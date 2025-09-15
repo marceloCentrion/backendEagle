@@ -116,5 +116,4 @@ class User extends BaseUser
     {
         return $this->belongsTo(Estado::class, 'estado_id');
     }
-
 }
