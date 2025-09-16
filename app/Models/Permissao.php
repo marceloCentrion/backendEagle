@@ -16,5 +16,6 @@ class Permissao extends BaseModel
         'ver',
         'menu',
         'ordem'
+
     ];
 }

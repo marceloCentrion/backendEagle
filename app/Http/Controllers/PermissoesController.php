@@ -16,6 +16,7 @@ class PermissoesController extends Controller
     {
         $permissoes = PermissoesResource::collection(Permissao::all());
         return response()->json($permissoes, 200);
+
     }
 
     /**
@@ -26,6 +27,8 @@ class PermissoesController extends Controller
         $data = $request->validated();
         $permissao = Permissao::create($data);
         return response()->json($permissao, 201);
+
+
     }
 
     /**
@@ -33,11 +36,13 @@ class PermissoesController extends Controller
      */
     public function show(string $id)
     {
-        $permissao = Permissao::findOrFail($id);
-        if (!$permissao) {
+        $data = Permissao::findOrFail($id);
+        if(!$data){
             return response()->json(['message' => 'Permissão não encontrada'], 404);
+        } else {
+            $permissao = new PermissoesResource($data);
+            return response()->json($permissao, 200);
         }
-        return response()->json(new PermissoesResource($permissao), 200);
     }
 
     /**
@@ -52,6 +57,7 @@ class PermissoesController extends Controller
         $data = $request->validated();
         $permissao->update($data);
         return response()->json($permissao, 200);
+
     }
 
     /**
@@ -59,11 +65,12 @@ class PermissoesController extends Controller
      */
     public function destroy(string $id)
     {
-        $permissao = Permissao::findOrFail($id);
-        if (!$permissao) {
+        $permissoes = Permissao::findOrFail($id);
+        if(!$permissoes){
             return response()->json(['message' => 'Permissão não encontrada'], 404);
+        } else {
+            $permissoes->delete();
+            return response()->json(['message' => 'Permissão deletada com sucesso'], 200);
         }
-        $permissao->delete();
-        return response()->json("Permissao excluída com sucesso!", 200);
     }
 }
