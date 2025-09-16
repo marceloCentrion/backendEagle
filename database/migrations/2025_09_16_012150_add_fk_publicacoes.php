@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('segmentos_parceiros', function (Blueprint $table) {
-            $table->string('id',36)->primary();
-            $table->string('nome_segmento');
-            $table->timestamps();
+        Schema::table('avaliacoes_fisicas', function (Blueprint $table) {
+            $table->string('registro_exec_treino_id', 36)->nullable();
+            $table->foreign('registro_exec_treino_id')->references('id')->on('registro_exec_treinos');
         });
+
+            
+        //
     }
 
     /**
@@ -23,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('segmentos_parceiros');
+        //
     }
 };

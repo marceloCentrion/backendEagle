@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('grupos_musculares', function (Blueprint $table) {
-            $table->string('id')->primary();
+            $table->string('id',36)->primary();
             $table->string('academia_id', length:200)->notNullable();
             $table->foreign('academia_id')
                 ->references('id')

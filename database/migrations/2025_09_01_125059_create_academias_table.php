@@ -8,10 +8,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('academias', function (Blueprint $table) {
-            $table->string('id')->primary();
+            $table->string('id',36)->primary();
             $table->string('cep', 200)->nullable();
-            $table->string('cidade_id', 200)->nullable(); // FK nullable
-            $table->foreign('cidade_id')->references('id')->on('cidades');
+
             $table->string('cnpj', 200)->nullable();
             $table->string('descricao', 200)->nullable();
             $table->string('email', 200)->nullable();

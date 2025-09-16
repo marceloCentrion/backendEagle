@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('permissaos', function (Blueprint $table) {
-            $table->string('id')->primary();
+        Schema::create('permissoes', function (Blueprint $table) {
+            $table->string('id',36)->primary();
             $table->enum('criar', ['SIM','NAO'])->default('NAO');
             $table->enum('editar', ['SIM','NAO'])->default('NAO');
             $table->enum('excluir', ['SIM','NAO'])->default('NAO');
@@ -34,10 +34,7 @@ return new class extends Migration
                 'AGENDAR'
             ]);
             $table->integer('ordem');
-            $table->string('perfil_acesso_id');
-            $table->foreign('perfil_acesso_id')
-                ->references('id')
-                ->on('perfil_acessos');
+
             $table->timestamps();
         });
     }
@@ -47,6 +44,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('permissaos');
+        Schema::dropIfExists('permissoes');
     }
 };

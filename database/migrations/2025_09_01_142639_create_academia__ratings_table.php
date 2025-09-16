@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('academia__ratings', function (Blueprint $table) {
-            $table->string('id')->primary();
+        Schema::create('academia_ratings', function (Blueprint $table) {
+            $table->string('id',36)->primary();
             $table->string('academia_id', length:200)->notNullable();
             $table->foreign('academia_id')
                 ->references('id')

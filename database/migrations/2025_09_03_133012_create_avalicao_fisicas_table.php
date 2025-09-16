@@ -11,18 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('avalicao_fisicas', function (Blueprint $table) {
-            $table->string('id')->primary();
+        Schema::create('avaliacoes_fisicas', function (Blueprint $table) {
+            $table->string('id',36)->primary();
             $table->integer('altura');
             $table->string('aluno_id', length:200);
             $table->foreign('aluno_id')
                 ->references('id')
                 ->on('users');
             $table->string('nome', length:200);
-            $table->string('avaliacao_anterior', length:200);
-            $table->foreign('avaliacao_anterior')
-                ->references('id')
-                ->on('avaliacao_fisicas');
             $table->date('data_avaliacao');
             $table->date('data_proxima_avaliacao');
             $table->integer('dc_abdominal');
@@ -65,6 +61,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('avalicao_fisicas');
+        Schema::dropIfExists('avaliacoes_fisicas');
     }
 };

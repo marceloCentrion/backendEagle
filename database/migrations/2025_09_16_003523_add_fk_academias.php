@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('segmentos_parceiros', function (Blueprint $table) {
-            $table->string('id',36)->primary();
-            $table->string('nome_segmento');
-            $table->timestamps();
+        Schema::table('academias', function (Blueprint $table) {
+            $table->string('cidade_id', 36)->nullable(); // FK nullable
+            $table->foreign('cidade_id')->references('id')->on('cidades');
         });
     }
 
@@ -23,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('segmentos_parceiros');
+        //
     }
 };

@@ -12,19 +12,19 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('chat_mensagens', function (Blueprint $table) {
-            $table->string('id')->primary();
+            $table->string('id',36)->primary();
             $table->date('data');
             $table->string('mensagem', 200);
             $table->enum('msg_lida', ['SIM', 'NAO']);
-            $table->string('pertence_a_conversa', 200);
+            $table->string('pertence_a_conversa', 36);
             $table->foreign('pertence_a_conversa')
                 ->references('id')
                 ->on('chat_conversas');
-            $table->string('quem_enviou', 200);
+            $table->string('quem_enviou', 36);
             $table->foreign('quem_enviou')
                 ->references('id')
                 ->on('users');
-            $table->string('quem_recebeu', 200);
+            $table->string('quem_recebeu', 36);
             $table->foreign('quem_recebeu')
                 ->references('id')
                 ->on('users');

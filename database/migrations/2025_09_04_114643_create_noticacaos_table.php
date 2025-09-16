@@ -12,18 +12,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('noticacaos', function (Blueprint $table) {
-            $table->string('id')->primary();
+        Schema::create('noticacoes', function (Blueprint $table) {
+            $table->string('id',36)->primary();
             $table->enum('arquivada', ['SIM','NAO'])
                 ->default('NAO');
             $table->string('destino', 200);
             $table->enum('lida', ['SIM','NAO'])
                 ->default('NAO');
             $table->string('notificacao',200);
-            $table->string('publicacao_id',200);
+            $table->string('publicacao_id',36);
             $table->foreign('publicacao_id')
                 ->references('id')
-                ->on('publicacaos');
+                ->on('publicacoes');
             $table->enum('tipo', [
                 'ATUALIZACOES SEMANAIS',
                 'LEMBRETE',
@@ -34,7 +34,7 @@ return new class extends Migration
                 'MENCAO',
                 'CURTIDA'
             ]);
-            $table->string('user_id',200);
+            $table->string('user_id',36);
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users');
@@ -49,6 +49,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('noticacaos');
+        Schema::dropIfExists('noticacoes');
     }
 };

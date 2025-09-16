@@ -7,12 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Publicacao extends BaseModel
 {
+    protected $table = 'publicacoes';
      protected $fillable = [
         'arquivada',
         'excluida',
         'imagem',
         'registro_exec_treino_id',
-        'tag_publicacaos_id',
+        'tag_publicacoes_id',
         'texto',
         'tinyurl',
         'uid_48h',
@@ -30,7 +31,7 @@ class Publicacao extends BaseModel
 
     public function tagPublicacao()
     {
-        return $this->belongsTo(TagPublicacao::class, 'tag_publicacaos_id');
+        return $this->belongsTo(TagPublicacao::class, 'tag_publicacoes_id');
     }
 
     public function userMencionado()

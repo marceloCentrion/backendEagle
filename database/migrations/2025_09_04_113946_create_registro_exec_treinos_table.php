@@ -12,18 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('registro_exec_treinos', function (Blueprint $table) {
-            $table->string('id')->primary();
-            $table->string('aluno_id', 200);
+            $table->string('id',36)->primary();
+            $table->string('aluno_id', 36);
             $table->foreign('aluno_id')
                 ->references('id')
                 ->on('users');
             $table->integer('calorias')->notNullable();
             $table->integer('execicios_concluidos')->notNullable();
             $table->integer('tempo')->notNullable();
-            $table->string('treino_id', 200);
-            $table->foreign('treino_id')
-                ->references('id')
-                ->on('treinos');
+
             $table->date('data')->notNullable();
             $table->string('creator', 200)->nullable();
             $table->string('slug', 200)->nullable();

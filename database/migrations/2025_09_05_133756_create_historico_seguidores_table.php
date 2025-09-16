@@ -12,13 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('historico_seguidores', function (Blueprint $table) {
-            $table->string('id')->primary();
+            $table->string('id',36)->primary();
             $table->enum('pendente', ['SIM', 'NAO']);
-            $table->string('seguido', length:200);
+            $table->string('seguido', 36);
             $table->foreign('seguido')
                 ->references('id')
                 ->on('users');
-            $table->string('seguidor', length:200);
+            $table->string('seguidor', 36);
             $table->foreign('seguidor')
                 ->references('id')
                 ->on('users');

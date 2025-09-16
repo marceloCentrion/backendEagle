@@ -22,7 +22,7 @@ class TagPublicacaoRequest extends FormRequest
     public function rules(): array
     {
          return [
-            'publicacao_id' => 'string|exists:publicacaos,id|max:200',
+            'publicacao_id' => 'string|exists:publicacoes,id|max:200',
             'creator' => 'required|string|max:200',
             'slug' => 'nullable|string|max:200',
         ];

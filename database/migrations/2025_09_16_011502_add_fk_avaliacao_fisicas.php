@@ -10,12 +10,13 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    {
-        Schema::create('segmentos_parceiros', function (Blueprint $table) {
-            $table->string('id',36)->primary();
-            $table->string('nome_segmento');
-            $table->timestamps();
+    {        Schema::table('avaliacoes_fisicas', function (Blueprint $table) {
+            $table->string('avaliacao_anterior', 36);
+            $table->foreign('avaliacao_anterior')
+                ->references('id')
+                ->on('avaliacoes_fisicas');
         });
+
     }
 
     /**
@@ -23,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('segmentos_parceiros');
+        //
     }
 };

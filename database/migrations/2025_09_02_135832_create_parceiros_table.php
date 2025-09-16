@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('parceiros', function (Blueprint $table) {
-            $table->string('id')->primary();
+            $table->string('id',36)->primary();
             $table->string('cidade_id', length:200)->notNullable();
             $table->foreign('cidade_id')
                 ->references('id')
@@ -34,7 +34,7 @@ return new class extends Migration
                 ])->notNullable();
             $table->string('site', length:200)->notNullable();
             $table->string('telefone', length:200)->notNullable();
-            $table->string('estado_id', length:200)->notNullable();
+            $table->string('estado_id', 36)->notNullable();
             $table->foreign('estado_id')
                 ->references('id')
                 ->on('estados');

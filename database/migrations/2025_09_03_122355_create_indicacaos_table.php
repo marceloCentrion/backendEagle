@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('indicacaos', function (Blueprint $table) {
-            $table->string('id')->primary();
+        Schema::create('indicacoes', function (Blueprint $table) {
+            $table->string('id',36)->primary();
             $table->string('codigo', length:200)->notNullable();
-            $table->string('user_id', length:200)->notNullable();
+            $table->string('user_id', 36)->notNullable();
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users');
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('indicacaos');
+        Schema::dropIfExists('indicacoes');
     }
 };

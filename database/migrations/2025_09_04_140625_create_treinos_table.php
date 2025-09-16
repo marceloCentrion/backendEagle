@@ -12,13 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('treinos', function (Blueprint $table) {
-   $table->string('id')->primary();
-    $table->string('grupo_muscular_id')->notNullable();
+   $table->string('id',36)->primary();
+    $table->string('grupo_muscular_id',36)->notNullable();
     $table->foreign('grupo_muscular_id')
         ->references('id')
         ->on('grupos_musculares');
 
-    $table->string('academia_id', 200)->notNullable();
+    $table->string('academia_id', 36)->notNullable();
     $table->foreign('academia_id')
         ->references('id')
         ->on('academias');

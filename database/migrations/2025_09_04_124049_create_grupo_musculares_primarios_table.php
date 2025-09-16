@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('grupo_musculares_primarios', function (Blueprint $table) {
-            $table->string('id')->primary();
-            $table->string('academia_id', 200);
+            $table->string('id',36)->primary();
+            $table->string('academia_id', 36);
             $table->foreign('academia_id')
                 ->references('id')
                 ->on('academias');
