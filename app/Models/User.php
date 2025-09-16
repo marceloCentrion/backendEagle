@@ -21,7 +21,6 @@ class User extends BaseUser
         'endereco',
         'bairro',
         'cidade_id',
-        'estado_id',
         'cep',
         'cpf_cnpj',
         'dt_nascimento',

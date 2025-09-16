@@ -114,8 +114,6 @@ public function rules(): array
 
         'tipo_perfil_app' => 'sometimes|in:PERFIL ABERTO,APENAS AMIGOS PROXIMOS,PRIVACIDADE TOTAL',
 
-        'estado_id' => 'sometimes|nullable|exists:estados,id',
-
         'estado_txt' => 'sometimes|string|max:100',
 
         'ult_acesso' => 'sometimes|date',
@@ -254,9 +252,6 @@ public function messages()
         'telefone_mascarado.max' => 'O telefone mascarado não pode ter mais de 15 caracteres.',
 
         'tipo_perfil_app.in' => 'O tipo de perfil deve ser PERFIL ABERTO, APENAS AMIGOS PROXIMOS ou PRIVACIDADE TOTAL.',
-
-        'estado_id.integer' => 'O estado deve ser um identificador numérico válido.',
-        'estado_id.exists' => 'O estado selecionado não é válido.',
 
         'estado_txt.string' => 'O estado deve ser um texto válido.',
         'estado_txt.max' => 'O estado não pode ter mais de 100 caracteres.',
