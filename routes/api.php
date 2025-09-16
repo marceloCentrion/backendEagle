@@ -11,6 +11,7 @@ use App\Http\Controllers\FileUserController;
 use App\Http\Controllers\GruposMuscularesController;
 use App\Http\Controllers\IndicacaoController;
 use App\Http\Controllers\ParceirosController;
+use App\Http\Controllers\PermissoesController;
 use App\Http\Controllers\PublicacaoController;
 use App\Http\Controllers\RedeSocialController;
 use App\Http\Controllers\RegistroExecTreinoController;
@@ -39,5 +40,6 @@ Route::apiResource('tag-publicacao', TagPublicacaoController::class);
 Route::apiResource('rede-social', RedeSocialController::class);
 Route::apiResource('indicacao', IndicacaoController::class);
 Route::apiResource('file-user', FileUserController::class);
+Route::apiResource('permissao', PermissoesController::class);
 
 
