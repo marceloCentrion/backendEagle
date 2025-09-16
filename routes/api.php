@@ -11,6 +11,7 @@ use App\Http\Controllers\FileUserController;
 use App\Http\Controllers\GruposMuscularesController;
 use App\Http\Controllers\IndicacaoController;
 use App\Http\Controllers\ParceirosController;
+use App\Http\Controllers\PerfilAcessosController;
 use App\Http\Controllers\PermissoesController;
 use App\Http\Controllers\PublicacaoController;
 use App\Http\Controllers\RedeSocialController;
@@ -41,5 +42,6 @@ Route::apiResource('rede-social', RedeSocialController::class);
 Route::apiResource('indicacao', IndicacaoController::class);
 Route::apiResource('file-user', FileUserController::class);
 Route::apiResource('permissao', PermissoesController::class);
+Route::apiResource('perfil-acesso', PerfilAcessosController::class);
 
 
