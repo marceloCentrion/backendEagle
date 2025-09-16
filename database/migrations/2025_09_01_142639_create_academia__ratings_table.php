@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('academia__ratings', function (Blueprint $table) {
-            $table->string('id')->primary();
-            $table->string('academia_id', length:200);
+        Schema::create('academia_ratings', function (Blueprint $table) {
+            $table->string('id',36)->primary();
+            $table->string('academia_id', length:200)->notNullable();
             $table->foreign('academia_id')
                 ->references('id')
                 ->on('academias');
-            $table->integer('rating');
-            $table->string('creator', length:200);
-            $table->string('slug', length:200);
+            $table->integer('rating')->notNullable();
+            $table->string('creator', length:200)->nullable();
+            $table->string('slug', length:200)->nullable();
             $table->timestamps();
         });
     }

@@ -13,25 +13,22 @@ return new class extends Migration
     {
         Schema::create('exercicios', function (Blueprint $table) {
             $table->string('id')->primary();
-            $table->string('academia_id', 200);
+            $table->string('academia_id', 36);
             $table->foreign('academia_id')
                 ->references('id')
                 ->on('academias');
-            $table->string('equipamento_id',200);
-            $table->foreign('equipamento_id')
-                ->references('id')
-                ->on('equipamentos');
+
             $table->string('foto_video',200);
             $table->enum('tipo_execucao', [
                 'POR REPETICOES',
                 'POR TEMPO',
             ]);
-            $table->enum('', [
+        /*    $table->enum('', [
                 'FORCA',
                 'FLEXIBILIADE',
                 'AEROBICA',
                 'EQUILIBRIO',
-                ]);
+                ]);*/
             $table->string('creator',200);
             $table->string('slug',200);
             $table->timestamps();

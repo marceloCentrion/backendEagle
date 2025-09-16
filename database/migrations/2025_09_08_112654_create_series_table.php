@@ -13,8 +13,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('series', function (Blueprint $table) {
-            $table->string('id')->primary();
-            $table->string('aluno_id', 200);
+            $table->string('id',36)->primary();
+            $table->string('aluno_id', 36);
             $table->foreign('aluno_id')
                 ->references('id')
                 ->on('users');

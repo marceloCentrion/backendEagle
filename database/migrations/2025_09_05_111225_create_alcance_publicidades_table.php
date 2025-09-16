@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('alcance_publicidades', function (Blueprint $table) {
-            $table->string('id')->primary();
-            $table->string('publicidade_id', 200);
+            $table->string('id',36)->primary();
+            $table->string('publicidade_id', 36);
             $table->foreign('publicidade_id')
                 ->references('id')
                 ->on('publicidades');
-            $table->string('user_id', 200);
+            $table->string('user_id', 36);
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users');

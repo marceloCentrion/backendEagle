@@ -25,8 +25,6 @@ return new class extends Migration
             $table->enum('nivel', ['BRONZE','PRATA','OURO','DIAMANTE'])->default('OURO');
 
             $table->string('endereco_geografico', 200)->nullable();
-            $table->string('academia_id')->nullable();
-            $table->foreign('academia_id')->references('id')->on('academias');
 
             $table->enum('alerta_noticiacao', ['SIM','NAO'])->default('NAO');
             $table->integer('altura')->nullable();
@@ -38,8 +36,7 @@ return new class extends Migration
             $table->string('cargo', 200)->nullable();
             $table->string('cep', 200)->nullable();
 
-            $table->string('cidade_id')->nullable();
-            $table->foreign('cidade_id')->references('id')->on('cidades');
+
 
             $table->string('codigo_indicacao', 200)->nullable();
             $table->string('complemento', 200)->nullable();
@@ -67,8 +64,7 @@ return new class extends Migration
             $table->string('observacoes', 200)->nullable();
             $table->string('papel_parede', 200)->nullable();
 
-            $table->string('parceiro_id')->nullable();
-            $table->foreign('parceiro_id')->references('id')->on('parceiros');
+
 
             $table->integer('peso_atual')->nullable();
             $table->string('profile', 200)->nullable();
@@ -85,9 +81,6 @@ return new class extends Migration
                 'PERFIL ABERTO','APENAS AMIGOS PROXIMOS','PRIVACIDADE TOTAL'
             ])->nullable();
 
-            $table->string('estado_id')->nullable();
-            $table->foreign('estado_id')->references('id')->on('estados');
-
             $table->string('estado_txt', 200)->nullable();
             $table->date('ult_acesso')->nullable();
 
@@ -95,6 +88,7 @@ return new class extends Migration
             $table->enum('verif_reg_conselho', ['SIM','NAO'])->default('NAO');
             $table->enum('verif_telefone', ['SIM','NAO'])->default('NAO');
 
+            $table->string('creator', 200)->nullable();
             $table->string('slug', 200)->nullable();
 
             $table->rememberToken();

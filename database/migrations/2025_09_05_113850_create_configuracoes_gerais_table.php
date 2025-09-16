@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('configuracoes_gerais', function (Blueprint $table) {
-            $table->string('id')->primary();
+            $table->string('id',36)->primary();
             $table->enum('rec_notif_publicacao', ['SIM', 'NAO']);
             $table->enum('rec_notif_semanal', ['SIM', 'NAO']);
             $table->string('creator', 200);

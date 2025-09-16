@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('alcance_modalidades', function (Blueprint $table) {
-            $table->string('id')->primary();
+            $table->string('id',36)->primary();
             $table->string('publicidade_id');
             $table->foreign('publicidade_id')
                 ->references('id')

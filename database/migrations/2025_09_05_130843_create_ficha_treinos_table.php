@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('ficha_treinos', function (Blueprint $table) {
-            $table->string('id')->primary();
-            $table->string('aluno_id');
+            $table->string('id',36)->primary();
+            $table->string('aluno_id',36);
             $table->foreign('aluno_id')
                 ->references('id')
                 ->on('users'); 

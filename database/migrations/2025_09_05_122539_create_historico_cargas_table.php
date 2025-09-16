@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('historico_cargas', function (Blueprint $table) {
-            $table->string('id')->primary();
-            $table->integer('carga_atual');
-            $table->string('exercicio_treino_id');
-            $table->foreign('exercicio_treino_id')
-                ->references('id')
-                ->on('exercicios_treinos');
-            $table->timestamps();
-        });
+       Schema::create('historico_cargas', function (Blueprint $table) {
+    $table->string('id',36)->primary();
+    $table->integer('carga_atual');
+    $table->string('exercicio_treino_id',36);
+    $table->foreign('exercicio_treino_id')
+          ->references('id')
+          ->on('exercicios_treinos');
+    $table->timestamps();
+});
     }
 
     /**

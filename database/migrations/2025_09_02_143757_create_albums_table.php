@@ -11,16 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('albums', function (Blueprint $table) {
-            $table->string('id')->primary();
-            $table->string('cover', length:200);
-            $table->string('cover_img', length:200);
-            $table->string('nome_album', length:200);
-            $table->string('publicacao_id', length:200);
-            $table->foreign('publicacao_id')
-                ->references('id')
-                ->on('publicacaos');
-            $table->string('tinyurl', length:200);
+        Schema::create('albuns', function (Blueprint $table) {
+            $table->string('id',36)->primary();
+            $table->string('cover', length:200)->notNullable();
+            $table->string('cover_img', length:200)->notNullable();
+            $table->string('nome_album', length:200)->notNullable();
+            $table->string('tinyurl', length:200)->notNullable();
             $table->timestamps();
         });
     }

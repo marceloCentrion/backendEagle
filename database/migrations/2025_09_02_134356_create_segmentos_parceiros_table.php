@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('segmentos_parceiros', function (Blueprint $table) {
-            $table->string('id')->primary();
+            $table->string('id',36)->primary();
             $table->string('nome_segmento');
             $table->timestamps();
         });

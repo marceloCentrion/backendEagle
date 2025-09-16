@@ -12,16 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('rede_sociais', function (Blueprint $table) {
-            $table->string('id')->primary();
+            $table->string('id',36)->primary();
             $table->enum('tipo', [
                 'INSTAGRAM',
                 'TIKTOK', 
                 'FACEBOOK', 
                 'X (TWITTER)', 
                 'SPOTIFY'
-            ]);
-            $table->string('creator', length:200);
-            $table->string('slug', length:200);
+            ])->noNullable();
+            $table->string('creator', length:200)->nullable();
+            $table->string('slug', length:200)->nullable();
             $table->timestamps();
         });
     }

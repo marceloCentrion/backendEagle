@@ -6,5 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cidade extends BaseModel
 {
-    //
+    protected $fillable = [
+        "nome",
+        "estado_id",
+        "creator",
+        "slug"
+    ];
+public function estado()
+{
+    return $this->belongsTo(Estado::class, 'estado_id');
+}
 }

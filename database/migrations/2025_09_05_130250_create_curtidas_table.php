@@ -12,11 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('curtidas', function (Blueprint $table) {
-            $table->string('id')->primary();
-            $table->string('publicacao_id', length:200);
+            $table->string('id',36)->primary();
+            $table->string('publicacao_id', 36);
             $table->foreign('publicacao_id')
                 ->references('id')
-                ->on('publicacaos');
+                ->on('publicacoes');
             $table->string('creator', length:200);
             $table->string('slug', length:200);
             $table->timestamps();

@@ -12,13 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('bairros', function (Blueprint $table) {
-            $table->string('id')->primary();
-            $table->string('cidade_id', length:200);
+            $table->string('id',36)->primary();
+            $table->string('bairro', length:200)->notNullable();
+            $table->string('cidade_id', length:200)->notNullable();
             $table->foreign ('cidade_id')
                 ->references('id')
                 ->on('cidades');
-            $table->string('creatro', length:200);
-            $table->string('slug', length:200);
+            $table->string('creator', length:200)->nullable();
+            $table->string('slug', length:200)->nullable();
             $table->timestamps();
         });
     }

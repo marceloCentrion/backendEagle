@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('block_cadastros', function (Blueprint $table) {
-            $table->string('id')->primary();
+            $table->string('id',36)->primary();
             $table->enum('bloquear', ['SIM', 'NAO']);
             $table->string('creator', 200);
             $table->string('slug',200);

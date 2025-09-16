@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create("files_users", function (Blueprint $table) {
-            $table->string("id")->primary();
+            $table->string("id",36)->primary();
             $table->string("arquivo");
-            $table->timestamp("");
+            $table->timestamps();
          });
     }
 

@@ -12,11 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('historico_carga_exercicios', function (Blueprint $table) {
-            $table->string('id')->primary();
-            $table->string('exercicio_treino_id',200);
+            $table->string('id',36)->primary();
+            $table->string('exercicio_treino_id',36);
             $table->foreign('exercicio_treino_id')
                 ->references('id')
-                ->on('exercicio_treinos');
+                ->on('exercicios_treinos');
             $table->string('creator', length:200);
             $table->string('slug', length:200);
             $table->timestamps();

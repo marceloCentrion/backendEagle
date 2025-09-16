@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AcademiaRequest;
+use App\Http\Resources\AcademiaResource;
 use App\Models\Academia;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class AcademiaController extends Controller
     public function index()
     {
         $data = Academia::all();
-        return response()->json($data);
+        $resource = AcademiaResource::collection($data);
+        return response()->json($resource);
     }
 
     /**
@@ -32,11 +34,12 @@ class AcademiaController extends Controller
      */
     public function show(string $id)
     {
-        $academia = Academia::find($id);
+        $academia = Academia::findOrFail($id);
         if (!$academia) {
             return response()->json(['message' => 'Academia não encontrada'], 404);
         }
-        return response()->json($academia);
+        $resource = new AcademiaResource($academia);
+        return response()->json($resource);
     }
 
     /**

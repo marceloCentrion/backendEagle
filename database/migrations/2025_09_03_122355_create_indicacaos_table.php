@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('indicacaos', function (Blueprint $table) {
-            $table->string('id')->primary();
-            $table->string('codigo', length:200);
-            $table->string('user_id', length:200);
+        Schema::create('indicacoes', function (Blueprint $table) {
+            $table->string('id',36)->primary();
+            $table->string('codigo', length:200)->notNullable();
+            $table->string('user_id', 36)->notNullable();
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users');
-            $table->string('creator', length:200);
-            $table->string('slug', length:200);
+            $table->string('creator', length:200)->nullable();
+            $table->string('slug', length:200)->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('indicacaos');
+        Schema::dropIfExists('indicacoes');
     }
 };
