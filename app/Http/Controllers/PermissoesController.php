@@ -15,7 +15,8 @@ class PermissoesController extends Controller
     public function index()
     {
         $permissoes = PermissoesResource::collection(Permissao::all());
-        return response()->json($permissoes);
+        return response()->json($permissoes, 200);
+
     }
 
     /**
@@ -25,7 +26,9 @@ class PermissoesController extends Controller
     {
         $data = $request->validated();
         $permissao = Permissao::create($data);
-        return response()->json($permissao, 200);
+        return response()->json($permissao, 201);
+
+
     }
 
     /**
@@ -47,14 +50,14 @@ class PermissoesController extends Controller
      */
     public function update(PermissoesRequest $request, string $id)
     {
-        $permissoes = Permissao::findOrFail($id);
-        if(!$permissoes){
+        $permissao = Permissao::findOrFail($id);
+        if (!$permissao) {
             return response()->json(['message' => 'Permissão não encontrada'], 404);
-        } else {
-            $data = $request->validated();
-            $permissoes->update($data);
-            return response()->json($permissoes, 200);
         }
+        $data = $request->validated();
+        $permissao->update($data);
+        return response()->json($permissao, 200);
+
     }
 
     /**
