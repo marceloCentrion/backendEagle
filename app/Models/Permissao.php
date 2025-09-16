@@ -9,9 +9,12 @@ class Permissao extends BaseModel
     protected $table = 'permissoes';
     protected $fillable = [
         'id',
-        'nome',
-        'descricao',
-        'creator',
-        'slug',
+        'criar',
+        'editar',
+        'excluir',
+        'salva',
+        'ver',
+        'menu',
+        'ordem'
     ];
 }
