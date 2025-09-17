@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\FileUserRequest;
-use App\Http\Requests\StoreFileUserRequest;
-use App\Http\Requests\UpdateFileUserRequest;
+use App\Http\Requests\FileUser\StoreFileUserRequest;
+use App\Http\Requests\fileUser\UpdateFileUserRequest;
 use App\Http\Resources\FileUserResource;
 use App\Models\FilesUsers;
 use Illuminate\Http\Request;

@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\RegistroExecTreinoRequest;
-use App\Http\Requests\StoreRegistroExecTreinoRequest;
-use App\Http\Requests\UpdateRegistroExecTreinoRequest;
+use App\Http\Requests\RegistroExecTreino\StoreRegistroExecTreinoRequest;
+use App\Http\Requests\RegistroExecTreino\UpdateRegistroExecTreinoRequest;
 use App\Http\Resources\RegistroExecTreinoResource;
 use App\Models\RegistroExecTreino;
 use Illuminate\Http\Request;

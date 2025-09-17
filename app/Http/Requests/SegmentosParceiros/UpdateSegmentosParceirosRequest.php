@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\SegmentosParceiros;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreSegmentosParceirosRequest extends FormRequest
+class UpdateSegmentosParceirosRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,14 +22,13 @@ class StoreSegmentosParceirosRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "nome_segmento"=> "string|required|max:200  ",
+            "nome_segmento"=> "string|sometimes|max:200  ",
         ];
     }
 
     public function messages(): array
     {
         return [
-            'nome_segmento.required' => 'O campo nome_segmento é obrigatório.',
             'nome_segmento.max' => 'O campo nome_segmento não deve exceder 200 caracteres.',
         ];
     }

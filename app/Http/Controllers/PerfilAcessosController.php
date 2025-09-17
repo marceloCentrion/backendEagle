@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\PerfilAcessosRequest;
-use App\Http\Requests\StorePerfilAcessosRequest;
-use App\Http\Requests\UpdatePerfilAcessosRequest;
+use App\Http\Requests\PerfilAcessos\StorePerfilAcessosRequest;
+use App\Http\Requests\PerfilAcessos\UpdatePerfilAcessosRequest;
 use App\Http\Resources\PerfilAcessosResource;
 use App\Models\PerfilAcesso;
 use Illuminate\Contracts\Cache\Store;

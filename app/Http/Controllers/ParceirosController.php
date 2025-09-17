@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ParceirosRequest;
-use App\Http\Requests\StoreParceirosRequest;
-use App\Http\Requests\UpdateParceirosRequest;
+use App\Http\Requests\Parceiros\StoreParceirosRequest;
+use App\Http\Requests\Parceiros\UpdateParceirosRequest;
 use App\Http\Resources\ParceirosResource;
 use App\Models\Parceiro;
 use Illuminate\Http\Request;

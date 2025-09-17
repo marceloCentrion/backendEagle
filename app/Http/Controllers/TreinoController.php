@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreTreinoRequest;
-use App\Http\Requests\TreinoRequest;
-use App\Http\Requests\UpdateTreinoRequest;
+use App\Http\Requests\Treino\StoreTreinoRequest;
+use App\Http\Requests\Treino\UpdateTreinoRequest;
 use App\Http\Resources\TreinoResource;
 use App\Models\Treino;
 use Illuminate\Http\Request;

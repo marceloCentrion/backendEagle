@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AlbumsRequest;
-use App\Http\Requests\StoreAlbumsRequest;
-use App\Http\Requests\UpdateAlbumsRequest;
+use App\Http\Requests\Albums\StoreAlbumsRequest;
+use App\Http\Requests\Albums\UpdateAlbumsRequest;
 use App\Http\Resources\AlbumsResource;
 use App\Models\Album;
 use Illuminate\Http\Request;

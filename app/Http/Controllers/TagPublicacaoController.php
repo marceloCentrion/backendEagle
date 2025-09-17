@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreTagPublicacaoRequest;
-use App\Http\Requests\TagPublicacaoRequest;
-use App\Http\Requests\UpdateTagPublicacaoRequest;
+use App\Http\Requests\TagPublicacao\StoreTagPublicacaoRequest;
+use App\Http\Requests\TagPublicacao\UpdateTagPublicacaoRequest;
 use App\Http\Resources\TagPublicacaoResource;
 use App\Models\TagPublicacao;
 use Illuminate\Http\Request;

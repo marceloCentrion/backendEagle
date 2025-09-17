@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\IndicacaoRequest;
-use App\Http\Requests\StoreIndicacaoRequest;
-use App\Http\Requests\UpdateIndicacaoRequest;
+use App\Http\Requests\Indicacao\StoreIndicacaoRequest;
+use App\Http\Requests\Indicacao\UpdateIndicacaoRequest;
 use App\Http\Resources\IndicacaoResource;
 use App\Models\Indicacao;
 use Illuminate\Http\Request;
