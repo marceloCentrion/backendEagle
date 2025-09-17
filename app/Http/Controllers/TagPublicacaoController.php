@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreTagPublicacaoRequest;
 use App\Http\Requests\TagPublicacaoRequest;
+use App\Http\Requests\UpdateTagPublicacaoRequest;
 use App\Http\Resources\TagPublicacaoResource;
 use App\Models\TagPublicacao;
 use Illuminate\Http\Request;
@@ -21,7 +23,7 @@ class TagPublicacaoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(TagPublicacaoRequest $request)
+    public function store(StoreTagPublicacaoRequest $request)
     {
         $data = $request->validated();
         $tagPublicacao = TagPublicacao::create($data);
@@ -44,11 +46,11 @@ class TagPublicacaoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateTagPublicacaoRequest $request, string $id)
     {
         $tagPublicacao = TagPublicacao::findOrFail($id);
         if ($tagPublicacao) {
-            $tagPublicacao->update($request->all());
+            $tagPublicacao->update($request->validated());
             return response()->json( $tagPublicacao, 200);
         } else {
             return response()->json(['message' => 'Tag não encontrada'], 404);

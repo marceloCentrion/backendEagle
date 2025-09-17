@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PerfilAcessosRequest;
+use App\Http\Requests\StorePerfilAcessosRequest;
+use App\Http\Requests\UpdatePerfilAcessosRequest;
 use App\Http\Resources\PerfilAcessosResource;
 use App\Models\PerfilAcesso;
+use Illuminate\Contracts\Cache\Store;
 use Illuminate\Http\Request;
 
 class PerfilAcessosController extends Controller
@@ -21,7 +24,7 @@ class PerfilAcessosController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(PerfilAcessosRequest $request)
+    public function store(StorePerfilAcessosRequest $request)
     {
         $data = $request->validated();
         $perfilAcesso = PerfilAcesso::create($data);
@@ -43,7 +46,7 @@ class PerfilAcessosController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(PerfilAcessosRequest $request, string $id)
+    public function update(UpdatePerfilAcessosRequest $request, string $id)
     {
         $perfilAcesso = PerfilAcesso::findOrFail($id);
         if (!$perfilAcesso) {

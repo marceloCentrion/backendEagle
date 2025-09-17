@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PublicacaosRequest extends FormRequest
+class UpdatePublicacaosRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,8 +22,8 @@ class PublicacaosRequest extends FormRequest
     public function rules(): array
     {
         return [
-                'arquivada' => 'required|in:SIM,NAO',
-                'excluida' => 'required|in:SIM,NAO',
+                'arquivada' => 'sometimes|in:SIM,NAO',
+                'excluida' => 'sometimes|in:SIM,NAO',
                 'imagem' => 'nullable|string|max:200',
                 'registro_exec_treino_id' => 'nullable|string|exists:registro_exec_treinos,id',
                 'tag_publicacaos_id' => 'nullable|string|exists:tag_publicacaos,id',
@@ -41,10 +41,8 @@ class PublicacaosRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'arquivada.required' => 'O campo arquivada é obrigatório.',
             'arquivada.in' => 'O campo arquivada deve ser SIM ou NAO.',
 
-            'excluida.required' => 'O campo excluída é obrigatório.',
             'excluida.in' => 'O campo excluída deve ser SIM ou NAO.',
 
             'imagem.max' => 'A imagem deve ter no máximo 200 caracteres.',

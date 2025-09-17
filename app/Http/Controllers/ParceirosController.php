@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ParceirosRequest;
+use App\Http\Requests\StoreParceirosRequest;
+use App\Http\Requests\UpdateParceirosRequest;
 use App\Http\Resources\ParceirosResource;
 use App\Models\Parceiro;
 use Illuminate\Http\Request;
@@ -21,7 +23,7 @@ class ParceirosController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(ParceirosRequest $request)
+    public function store(StoreParceirosRequest $request)
     {
         $data = $request->validated();
         $parceiros = Parceiro::create($data);
@@ -44,7 +46,7 @@ class ParceirosController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(ParceirosRequest $request, string $id)
+    public function update(UpdateParceirosRequest $request, string $id)
     {
         $data = Parceiro::findOrFail($id);
         if(!$data){

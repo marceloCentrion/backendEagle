@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SegmentosParceirosRequest;
+use App\Http\Requests\StoreSegmentosParceirosRequest;
+use App\Http\Requests\UpdateSegmentosParceirosRequest;
 use App\Models\SegmentosParceiros;
 use Illuminate\Http\Request;
 
@@ -20,7 +22,7 @@ class SegmentosParceirosController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(SegmentosParceirosRequest $request)
+    public function store(StoreSegmentosParceirosRequest $request)
     {
         $segmentosParceiros = SegmentosParceiros::create($request->validated());
         return response()->json($segmentosParceiros, 201);
@@ -41,13 +43,13 @@ class SegmentosParceirosController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateSegmentosParceirosRequest $request, string $id)
     {
         $segmentosParceiros = SegmentosParceiros::findOrFail($id);
         if(!$segmentosParceiros){
             return response()->json(['message'=> 'Segmento não encontrado'], 404);
         }
-        $segmentosParceiros->update($request->all());
+        $segmentosParceiros->update($request->validated());
         return response()->json($segmentosParceiros);
     }
 

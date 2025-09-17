@@ -3,7 +3,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AcademiaRequest extends FormRequest
+class StoreAcademiaRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -25,7 +25,7 @@ class AcademiaRequest extends FormRequest
             "localidade" => "nullable|string|max:200",
             "logo" => "nullable|string|max:200",
             "nome" => "required|string|max:200",
-            "receber_atualizacoes_semanais" => "nullable|in:SIM,NAO",
+            "receber_atualizacoes_semanais" => "required|in:SIM,NAO",
             "responsavel" => "nullable|string|max:200",
             "site" => "nullable|string|max:200",
             "telefone" => "nullable|string|size:11",

@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 
 
-class ParceirosRequest extends FormRequest
+class StoreParceirosRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -20,15 +20,8 @@ class ParceirosRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules(): array
-    {
-          /** @var \Illuminate\Http\Request $this */
-       return $this->isMethod('post')
-        ? $this->createRules()
-        : $this->updateRules();
-    }
 
-    protected function createRules(): array
+    protected function rules(): array
 {
     return [
         "cidade_id" => "required|string|max:200|exists:cidades,id",
@@ -45,28 +38,6 @@ class ParceirosRequest extends FormRequest
         "site" => "required|string|max:200",
         "telefone" => "required|string|max:200",
         "estado_id" => "required|string|max:200|exists:estados,id",
-        "creator" => "nullable|string|max:200",
-        "slug" => "nullable|string|max:200",
-    ];
-}
-
-protected function updateRules(): array
-{
-    return [
-        "cidade_id" => "sometimes|required|string|max:200|exists:cidades,id",
-        "cnpj" => "sometimes|required|string|max:14",
-        "descricao" => "nullable|string|max:500",
-        "email" => "sometimes|required|string|email|max:200",
-        "email_responsavel" => "sometimes|string|email|max:200",
-        "fim_periodo" => "sometimes|date",
-        "inicio_periodo" => "sometimes|date",
-        "logo" => "sometimes|string|max:200",
-        "nome" => "sometimes|string|max:200",
-        "nome_responsavel" => "sometimes|string|max:200",
-        "segmento" => "sometimes|in:SUPLEMENTOS ALIMENTARES,MODA FITNESS,NUTRICIONISTA OU CONSULTOR DE SAUDE,ALIMENTACAO SAUDAVEL",
-        "site" => "sometimes|string|max:200",
-        "telefone" => "sometimes|string|max:200",
-        "estado_id" => "sometimes|string|max:200|exists:estados,id",
         "creator" => "nullable|string|max:200",
         "slug" => "nullable|string|max:200",
     ];
