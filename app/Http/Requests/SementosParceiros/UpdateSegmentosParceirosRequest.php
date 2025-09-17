@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class IndicacaoRequest extends FormRequest
+class UpdateSegmentosParceirosRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,18 +22,14 @@ class IndicacaoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'codigo' => 'required|string|max:200',
-            'user_id' => 'required|string|max:200|exists:users,id',
-            'creator' => 'nullable|string|max:200',
-            'slug' => 'nullable|string|max:200',    
+            "nome_segmento"=> "string|sometimes|max:200  ",
         ];
     }
 
-    public function messages(){
-        return[
-        'codigo.required' => 'O campo código é obrigatório.',
-        'user_id.required' => 'O campo user_id é obrigatório.',
-        'user_id.exists' => 'O user_id informado não existe.',
+    public function messages(): array
+    {
+        return [
+            'nome_segmento.max' => 'O campo nome_segmento não deve exceder 200 caracteres.',
         ];
     }
 }

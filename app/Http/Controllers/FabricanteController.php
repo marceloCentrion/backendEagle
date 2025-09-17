@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\FabricanteRequest;
+use App\Http\Requests\StoreFabricanteRequest;
+use App\Http\Requests\UpdateFabricanteRequest;
 use App\Http\Resources\FabricanteResource;
 use App\Models\Fabricante;
 use Illuminate\Http\Request;
@@ -21,7 +23,7 @@ class FabricanteController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(FabricanteRequest $request)
+    public function store(StoreFabricanteRequest $request)
     {
         $data = $request->validated();
         $fabricante = Fabricante::create($data);
@@ -44,13 +46,13 @@ class FabricanteController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateFabricanteRequest $request, string $id)
     {
         $fabricante = Fabricante::find($id);
         if (!$fabricante) {
             return response()->json(['message' => 'Fabricante nao encontrado'], 404);
         }
-        $fabricante->update($request->all());
+        $fabricante->update($request->validated());
         return response()->json($fabricante);
     }
 

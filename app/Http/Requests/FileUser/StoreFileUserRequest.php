@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SegmentosParceirosRequest extends FormRequest
+class StoreFileUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,15 +22,14 @@ class SegmentosParceirosRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "nome_segmento"=> "string|required|max:200  ",
+            'arquivo' => 'required|string',
         ];
     }
 
     public function messages(): array
     {
         return [
-            'nome_segmento.required' => 'O campo nome_segmento é obrigatório.',
-            'nome_segmento.max' => 'O campo nome_segmento não deve exceder 200 caracteres.',
-        ];
+            'arquivo.required' => 'O campo arquivo é obrigatório.',
+           ];
     }
 }

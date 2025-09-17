@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\FileUserRequest;
+use App\Http\Requests\StoreFileUserRequest;
+use App\Http\Requests\UpdateFileUserRequest;
 use App\Http\Resources\FileUserResource;
 use App\Models\FilesUsers;
 use Illuminate\Http\Request;
@@ -21,7 +23,7 @@ class FileUserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(FileUserRequest $request)
+    public function store(StoreFileUserRequest $request)
     {
         $data = $request->validated();
         $fileUser = FilesUsers::create($data);
@@ -43,7 +45,7 @@ class FileUserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(FileUserRequest $request, string $id)
+    public function update(UpdateFileUserRequest $request, string $id)
     {
         $fileUser = FilesUsers::findOrFail($id);
         if(!$fileUser) {

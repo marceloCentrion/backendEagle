@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class RegistroExecTreinoRequest extends FormRequest
+class StoreRegistroExecTreinoRequest extends FormRequest
 {
     public function authorize(): bool
     {

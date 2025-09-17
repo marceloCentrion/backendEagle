@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PublicacaosRequest;
+use App\Http\Requests\StorePublicacaosRequest;
+use App\Http\Requests\UpdatePublicacaosRequest;
 use App\Http\Resources\PublicacaosResource;
 use App\Models\Publicacao;
 use Illuminate\Http\Request;
@@ -21,7 +23,7 @@ class PublicacaoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(PublicacaosRequest $request)
+    public function store(StorePublicacaosRequest $request)
     {
         $data = $request->validated();
         $publicacao = Publicacao::create($data);
@@ -43,7 +45,7 @@ class PublicacaoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(PublicacaosRequest $request, string $id)
+    public function update(UpdatePublicacaosRequest $request, string $id)
     {
         $publicacao = Publicacao::findOrFail($id);
         if (!$publicacao) {
