@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\FabricanteRequest;
-use App\Http\Requests\StoreFabricanteRequest;
-use App\Http\Requests\UpdateFabricanteRequest;
+use App\Http\Requests\Fabricante\StoreFabricanteRequest;
+use App\Http\Requests\Fabricante\UpdateFabricanteRequest;
 use App\Http\Resources\FabricanteResource;
 use App\Models\Fabricante;
 use Illuminate\Http\Request;

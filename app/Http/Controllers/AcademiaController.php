@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\AcademiaRequest;
-use App\Http\Requests\StoreAcademiaRequest;
-use App\Http\Requests\UpdateAcademiaRequest;
+
+use App\Http\Requests\Academia\StoreAcademiaRequest;
+use App\Http\Requests\Academia\UpdateAcademiaRequest;
 use App\Http\Resources\AcademiaResource;
 use App\Models\Academia;
 use Illuminate\Http\Request;

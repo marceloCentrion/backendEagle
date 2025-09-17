@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\PermissoesRequest;
-use App\Http\Requests\StorePermissoesRequest;
-use App\Http\Requests\UpdatePermissoesRequest;
+use App\Http\Requests\Permissoes\StorePermissoesRequest;
+use App\Http\Requests\Permissoes\UpdatePermissoesRequest;
 use App\Http\Resources\PermissoesResource;
 use App\Models\Permissao;
 use Illuminate\Http\Request;

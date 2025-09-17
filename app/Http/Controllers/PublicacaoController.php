@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\PublicacaosRequest;
-use App\Http\Requests\StorePublicacaosRequest;
-use App\Http\Requests\UpdatePublicacaosRequest;
+use App\Http\Requests\Publicacao\StorePublicacaosRequest;
+use App\Http\Requests\Publicacao\UpdatePublicacaosRequest;
 use App\Http\Resources\PublicacaosResource;
 use App\Models\Publicacao;
 use Illuminate\Http\Request;

@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\RedeSocialRequest;
-use App\Http\Requests\StoreRedeSocialRequest;
-use App\Http\Requests\UpdateRedeSocialRequest;
+use App\Http\Requests\RedeSocial\StoreRedeSocialRequest;
+use App\Http\Requests\RedeSocial\UpdateRedeSocialRequest;
 use App\Http\Resources\RedeSocialResource;
 use App\Models\RedeSociais;
 use Illuminate\Http\Request;

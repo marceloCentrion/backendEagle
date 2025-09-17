@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Publicidade\StorePublicidadeRequest;
 use App\Http\Requests\Publicidade\UpdatePublicidadeRequest;
-use App\Http\Requests\StorePublicidadeRequest as RequestsStorePublicidadeRequest;
 use App\Http\Resources\PublicidadesResource;
 use App\Models\Publicidade;
 use Illuminate\Http\Request;
