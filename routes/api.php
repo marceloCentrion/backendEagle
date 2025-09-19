@@ -3,6 +3,7 @@
 use App\Http\Controllers\AcademiaController;
 use App\Http\Controllers\AcademiaRatingsController;
 use App\Http\Controllers\AlbumsController;
+use App\Http\Controllers\AvaliacaoFisicaController;
 use App\Http\Controllers\BairrosController;
 use App\Http\Controllers\CidadeController;
 use App\Http\Controllers\EstadoController;
@@ -45,5 +46,6 @@ Route::apiResource('file-user', FileUserController::class);
 Route::apiResource('permissao', PermissoesController::class);
 Route::apiResource('perfil-acesso', PerfilAcessosController::class);
 Route::apiResource('publicidade', PublicidadesController::class);
+Route::apiResource('avaliacao-fisica', AvaliacaoFisicaController::class);
 
 

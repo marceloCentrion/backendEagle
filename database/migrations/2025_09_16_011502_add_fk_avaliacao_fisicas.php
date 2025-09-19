@@ -15,6 +15,10 @@ return new class extends Migration
             $table->foreign('avaliacao_anterior')
                 ->references('id')
                 ->on('avaliacoes_fisicas');
+            $table->string('registro_exec_treino_id', 36);
+            $table->foreign('registro_exec_treino_id')
+                ->references('id')
+                ->on('registro_exec_treinos');
         });
 
     }
