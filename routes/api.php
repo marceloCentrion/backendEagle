@@ -11,6 +11,7 @@ use App\Http\Controllers\FabricanteController;
 use App\Http\Controllers\FileUserController;
 use App\Http\Controllers\GruposMuscularesController;
 use App\Http\Controllers\IndicacaoController;
+use App\Http\Controllers\ModalidadeController;
 use App\Http\Controllers\ParceirosController;
 use App\Http\Controllers\PerfilAcessosController;
 use App\Http\Controllers\PermissoesController;
@@ -47,5 +48,6 @@ Route::apiResource('permissao', PermissoesController::class);
 Route::apiResource('perfil-acesso', PerfilAcessosController::class);
 Route::apiResource('publicidade', PublicidadesController::class);
 Route::apiResource('avaliacao-fisica', AvaliacaoFisicaController::class);
+Route::apiResource('modalidade', ModalidadeController::class);
 
 
