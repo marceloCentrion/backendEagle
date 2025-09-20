@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\PermissoesRequest;
+use App\Http\Requests\Permissoes\StorePermissoesRequest;
+use App\Http\Requests\Permissoes\UpdatePermissoesRequest;
 use App\Http\Resources\PermissoesResource;
 use App\Models\Permissao;
 use Illuminate\Http\Request;
@@ -22,7 +23,7 @@ class PermissoesController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(PermissoesRequest $request)
+    public function store(StorePermissoesRequest $request)
     {
         $data = $request->validated();
         $permissao = Permissao::create($data);
@@ -48,7 +49,7 @@ class PermissoesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(PermissoesRequest $request, string $id)
+    public function update(UpdatePermissoesRequest $request, string $id)
     {
         $permissao = Permissao::findOrFail($id);
         if (!$permissao) {

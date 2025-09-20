@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\IndicacaoRequest;
+use App\Http\Requests\Indicacao\StoreIndicacaoRequest;
+use App\Http\Requests\Indicacao\UpdateIndicacaoRequest;
 use App\Http\Resources\IndicacaoResource;
 use App\Models\Indicacao;
 use Illuminate\Http\Request;
@@ -21,7 +22,7 @@ class IndicacaoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(IndicacaoRequest $request)
+    public function store(StoreIndicacaoRequest $request)
     {
         $data = $request->validated();
         $indicacao = Indicacao::create($data);
@@ -45,7 +46,7 @@ class IndicacaoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(IndicacaoRequest $request, string $id)
+    public function update(UpdateIndicacaoRequest $request, string $id)
     {
         $indicacao = Indicacao::findOrFail($id);
         if(!$indicacao){

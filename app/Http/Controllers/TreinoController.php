@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\TreinoRequest;
+use App\Http\Requests\Treino\StoreTreinoRequest;
+use App\Http\Requests\Treino\UpdateTreinoRequest;
 use App\Http\Resources\TreinoResource;
 use App\Models\Treino;
 use Illuminate\Http\Request;
@@ -21,7 +22,7 @@ class TreinoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(TreinoRequest $request)
+    public function store(StoreTreinoRequest $request)
     {
         $data = $request->validated();
         $treino = Treino::create($data);
@@ -43,13 +44,13 @@ class TreinoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateTreinoRequest $request, string $id)
     {
         $treino = Treino::findOrFail($id);
         if (!$treino) {
             return response()->json(['message' => 'Treino não encontrado'], 404);
         }
-        $treino->update($request->all());
+        $treino->update($request->validated());
         return response()->json($treino, 200);
     }
 

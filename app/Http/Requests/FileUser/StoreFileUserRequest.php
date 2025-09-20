@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\FileUser;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class FileUserRequest extends FormRequest
+class StoreFileUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

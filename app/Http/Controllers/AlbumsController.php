@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AlbumsRequest;
+use App\Http\Requests\Albums\StoreAlbumsRequest;
+use App\Http\Requests\Albums\UpdateAlbumsRequest;
 use App\Http\Resources\AlbumsResource;
 use App\Models\Album;
 use Illuminate\Http\Request;
@@ -21,7 +23,7 @@ class AlbumsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(AlbumsRequest $request)
+    public function store(StoreAlbumsRequest $request)
     {
         $data = $request->validated();
         $album = Album::create($data);
@@ -43,7 +45,7 @@ class AlbumsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(AlbumsRequest $request, string $id)
+    public function update(UpdateAlbumsRequest $request, string $id)
     {
         $data = Album::findOrFail($id);
         if(!$data){

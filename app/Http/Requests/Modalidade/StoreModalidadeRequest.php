@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Modalidade;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class IndicacaoRequest extends FormRequest
+class StoreModalidadeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,18 +22,16 @@ class IndicacaoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'codigo' => 'required|string|max:200',
-            'user_id' => 'required|string|max:200|exists:users,id',
-            'creator' => 'nullable|string|max:200',
-            'slug' => 'nullable|string|max:200',    
+            "modalidade"=> "required|string|max:200",
+            "creator"=> "nullable|string|max:200",
+            "slug"=> "nullable|string|max:200",
         ];
     }
-
     public function messages(){
-        return[
-        'codigo.required' => 'O campo código é obrigatório.',
-        'user_id.required' => 'O campo user_id é obrigatório.',
-        'user_id.exists' => 'O user_id informado não existe.',
+        return [
+            ".required" => "O campo :attribute é obrigatório.",
+            ".string" => "O campo :attribute deve ser uma string.",
+            ".max" => "O campo :attribute não deve ser maior que :max caracteres.",
         ];
     }
 }

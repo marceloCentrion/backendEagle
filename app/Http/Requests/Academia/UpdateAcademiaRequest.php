@@ -1,9 +1,9 @@
 <?php
-namespace App\Http\Requests;
+namespace App\Http\Requests\Academia;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AcademiaRequest extends FormRequest
+class UpdateAcademiaRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -13,26 +13,26 @@ class AcademiaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "cep" => "nullable|string|size:8",
-            "cidade_id" => "nullable|string|exists:cidades,id",
-            "cnpj" => "nullable|string|size:14",
-            "descricao" => "nullable|string|max:200",
-            "email" => "nullable|string|max:200",
-            "email_responsavel" => "nullable|string|max:200",
-            "endereco" => "nullable|string|max:200",
-            "horario" => "nullable|string|max:200",
-            "info_adicionais" => "nullable|string|max:200",
-            "localidade" => "nullable|string|max:200",
-            "logo" => "nullable|string|max:200",
-            "nome" => "required|string|max:200",
-            "receber_atualizacoes_semanais" => "nullable|in:SIM,NAO",
-            "responsavel" => "nullable|string|max:200",
-            "site" => "nullable|string|max:200",
-            "telefone" => "nullable|string|size:11",
-            "telefone_mascaradao" => "nullable|string|max:15",
-            "geo_location" => "nullable|string|max:200",
-            "creator" => "nullable|string|max:200",
-            "slug" => "nullable|string|max:200",
+            "cep" => "sometimes|string|size:8",
+            "cidade_id" => "sometimes|string|exists:cidades,id",
+            "cnpj" => "sometimes|string|size:14",
+            "descricao" => "sometimes|string|max:200",
+            "email" => "sometimes|string|max:200",
+            "email_responsavel" => "sometimes|string|max:200",
+            "endereco" => "sometimes|string|max:200",
+            "horario" => "sometimes|string|max:200",
+            "info_adicionais" => "sometimes|string|max:200",
+            "localidade" => "sometimes|string|max:200",
+            "logo" => "sometimes|string|max:200",
+            "nome" => "sometimes|string|max:200",
+            "receber_atualizacoes_semanais" => "sometimes|in:SIM,NAO",
+            "responsavel" => "sometimes|string|max:200",
+            "site" => "sometimes|string|max:200",
+            "telefone" => "sometimes|string|size:11",
+            "telefone_mascaradao" => "sometimes|string|max:15",
+            "geo_location" => "sometimes|string|max:200",
+            "creator" => "sometimes|string|max:200",
+            "slug" => "sometimes|string|max:200",
         ];
     }
 
@@ -74,7 +74,6 @@ public function messages()
         'logo.string' => 'O logo deve ser um texto válido.',
         'logo.max' => 'O logo não pode ter mais de 255 caracteres.',
 
-        'nome.required' => 'O nome é obrigatório.',
         'nome.string' => 'O nome deve ser um texto válido.',
         'nome.max' => 'O nome não pode ter mais de 150 caracteres.',
 

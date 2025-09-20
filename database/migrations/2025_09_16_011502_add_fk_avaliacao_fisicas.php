@@ -14,11 +14,11 @@ return new class extends Migration
 
             $table->string('avaliacao_anterior', 36)->nullable();
 
-                $table->foreign('avaliacao_anterior')
-                ->references('id')
-                ->on('avaliacoes_fisicas')
-                ->onDelete('set null'); // importante: define comportamento quando o registro referenciado for deletado
 
+            $table->string('registro_exec_treino_id', 36);
+            $table->foreign('registro_exec_treino_id')
+                ->references('id')
+                ->on('registro_exec_treinos');
         });
 
     }

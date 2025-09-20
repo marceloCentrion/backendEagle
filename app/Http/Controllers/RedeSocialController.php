@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\RedeSocialRequest;
+use App\Http\Requests\RedeSocial\StoreRedeSocialRequest;
+use App\Http\Requests\RedeSocial\UpdateRedeSocialRequest;
 use App\Http\Resources\RedeSocialResource;
 use App\Models\RedeSociais;
 use Illuminate\Http\Request;
@@ -21,7 +22,7 @@ class RedeSocialController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(RedeSocialRequest $request)
+    public function store(StoreRedeSocialRequest $request)
     {
         $data = $request->validated();
         $redeSocial = RedeSociais::create($data);
@@ -45,13 +46,13 @@ class RedeSocialController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateRedeSocialRequest $request, string $id)
     {
         $redeSocial = RedeSociais::findOrFail($id);
         if(!$redeSocial){
             return response()->json(['message'=> 'Rede Social não encontrada'], 404);
         }else{
-            $data = $request->all();
+            $data = $request->validated();
             $redeSocial->update($data);
             return response()->json($redeSocial, 200);
         }

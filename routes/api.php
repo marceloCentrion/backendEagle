@@ -3,6 +3,7 @@
 use App\Http\Controllers\AcademiaController;
 use App\Http\Controllers\AcademiaRatingsController;
 use App\Http\Controllers\AlbumsController;
+use App\Http\Controllers\AvaliacaoFisicaController;
 use App\Http\Controllers\BairrosController;
 use App\Http\Controllers\CidadeController;
 use App\Http\Controllers\EstadoController;
@@ -10,9 +11,12 @@ use App\Http\Controllers\FabricanteController;
 use App\Http\Controllers\FileUserController;
 use App\Http\Controllers\GruposMuscularesController;
 use App\Http\Controllers\IndicacaoController;
+use App\Http\Controllers\ModalidadeController;
 use App\Http\Controllers\ParceirosController;
+use App\Http\Controllers\PerfilAcessosController;
 use App\Http\Controllers\PermissoesController;
 use App\Http\Controllers\PublicacaoController;
+use App\Http\Controllers\PublicidadesController;
 use App\Http\Controllers\RedeSocialController;
 use App\Http\Controllers\RegistroExecTreinoController;
 use App\Http\Controllers\SegmentosParceirosController;
@@ -41,5 +45,9 @@ Route::apiResource('rede-social', RedeSocialController::class);
 Route::apiResource('indicacao', IndicacaoController::class);
 Route::apiResource('file-user', FileUserController::class);
 Route::apiResource('permissao', PermissoesController::class);
+Route::apiResource('perfil-acesso', PerfilAcessosController::class);
+Route::apiResource('publicidade', PublicidadesController::class);
+Route::apiResource('avaliacao-fisica', AvaliacaoFisicaController::class);
+Route::apiResource('modalidade', ModalidadeController::class);
 
 

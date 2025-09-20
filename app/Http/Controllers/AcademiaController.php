@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\AcademiaRequest;
+
+use App\Http\Requests\Academia\StoreAcademiaRequest;
+use App\Http\Requests\Academia\UpdateAcademiaRequest;
 use App\Http\Resources\AcademiaResource;
 use App\Models\Academia;
 use Illuminate\Http\Request;
@@ -22,7 +24,7 @@ class AcademiaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(AcademiaRequest $request)
+    public function store(StoreAcademiaRequest $request)
     {
         $data = $request->validated();
         $academia = Academia::create($data);
@@ -45,7 +47,7 @@ class AcademiaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(AcademiaRequest $request, string $id)
+    public function update(UpdateAcademiaRequest $request, string $id)
     {
         $academia = Academia::find($id);
         if (!$academia) {

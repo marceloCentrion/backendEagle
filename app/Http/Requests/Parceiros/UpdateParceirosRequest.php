@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Parceiros;
 
 use Illuminate\Foundation\Http\FormRequest;
 
 
-class ParceirosRequest extends FormRequest
+class UpdateParceirosRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -20,37 +20,7 @@ class ParceirosRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules(): array
-    {
-          /** @var \Illuminate\Http\Request $this */
-       return $this->isMethod('post')
-        ? $this->createRules()
-        : $this->updateRules();
-    }
-
-    protected function createRules(): array
-{
-    return [
-        "cidade_id" => "required|string|max:200|exists:cidades,id",
-        "cnpj" => "required|string|max:14",
-        "descricao" => "nullable|string|max:500",
-        "email" => "required|string|email|max:200",
-        "email_responsavel" => "required|string|email|max:200",
-        "fim_periodo" => "required|date",
-        "inicio_periodo" => "required|date",
-        "logo" => "required|string|max:200",
-        "nome" => "required|string|max:200",
-        "nome_responsavel" => "required|string|max:200",
-        "segmento" => "required|in:SUPLEMENTOS ALIMENTARES,MODA FITNESS,NUTRICIONISTA OU CONSULTOR DE SAUDE,ALIMENTACAO SAUDAVEL",
-        "site" => "required|string|max:200",
-        "telefone" => "required|string|max:200",
-        "estado_id" => "required|string|max:200|exists:estados,id",
-        "creator" => "nullable|string|max:200",
-        "slug" => "nullable|string|max:200",
-    ];
-}
-
-protected function updateRules(): array
+protected function rules(): array
 {
     return [
         "cidade_id" => "sometimes|required|string|max:200|exists:cidades,id",

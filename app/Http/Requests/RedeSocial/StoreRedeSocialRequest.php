@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\RedeSocial;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class RedeSocialRequest extends FormRequest
+class StoreRedeSocialRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
