@@ -11,10 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {        Schema::table('avaliacoes_fisicas', function (Blueprint $table) {
-            $table->string('avaliacao_anterior', 36);
-            $table->foreign('avaliacao_anterior')
+
+            $table->string('avaliacao_anterior', 36)->nullable();
+
+                $table->foreign('avaliacao_anterior')
                 ->references('id')
-                ->on('avaliacoes_fisicas');
+                ->on('avaliacoes_fisicas')
+                ->onDelete('set null'); // importante: define comportamento quando o registro referenciado for deletado
+
         });
 
     }
